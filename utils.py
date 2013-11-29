@@ -1,4 +1,6 @@
 from pandas import DataFrame, Series, read_csv
+from datetime import datetime
+from datetime import timedelta
 from collections import Counter
 
 def load_info_file(index):
@@ -19,6 +21,14 @@ def load_checkins_file(index):
 def most_common_element(list):
     count = Counter(list)
     return count.most_common(1)[0][0]
+
+def most_recent_date(list):
+    most_recent = datetime(1900, 1, 1)
+    for i in range(0, len(list)):
+        date = datetime.strptime(list.iloc[i], '%m/%d/%Y')
+        if most_recent < date:
+            most_recent = date
+    return most_recent.strftime('%m/%d/%Y')
 
 def normalize(number, max):
 	if number > max:

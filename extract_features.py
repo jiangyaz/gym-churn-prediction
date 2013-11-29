@@ -1,11 +1,9 @@
 from pandas import DataFrame, Series, read_csv
 from basic_feature import *
 from past_visits_feature import *
+
 import pandas as pd
 import numpy as np
-from datetime import datetime
-from datetime import timedelta
-from collections import Counter
 
 data_seg_num = 5
 
