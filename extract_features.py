@@ -19,7 +19,9 @@ for i in range(1, data_seg_num + 1):
 	# print 'Loading feature: "membership type" ...'
 	# load_member_type_feature(i)
 
-	print 'Loading feature: "club regularity" ...'
-	load_club_regularity_feature(i)
+	# print 'Loading feature: "club regularity" ...'
+	# load_club_regularity_feature(i)
+
+	load_weekly_visit_feature(i)
 	
 	print 'Loading complete. \n'

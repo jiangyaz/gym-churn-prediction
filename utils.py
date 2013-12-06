@@ -8,6 +8,7 @@ def load_info_file(index):
     col_info = [ 'index', 'Member number','Cancel reason','DOB','Cancel date','Join date','Last Active',
                 'Home club','Profile create', 'M/F', 'Type', 'Status']
     df_info = read_csv(df_info_file, index_col = 0, names = col_info, dtype={'Member number': object}, skiprows = 1)
+    df_info = df_info.set_index(['Member number'])
     return df_info
 
 def load_checkins_file(index):
@@ -35,3 +36,14 @@ def normalize(number, max):
 		return 1.0
 	else: 
 		return float(number)/max
+
+def empty_date_table():
+    date_keys = []
+    for i in range(2008, 2014):
+        for j in range(1, 53):
+            key = str(i) + str(j).zfill(2)
+            date_keys.append(key)
+    return Series([0] * len(date_keys), index = date_keys)
+
+def get_year_week(date):
+    return str(date.isocalendar()[0]) + str(date.isocalendar()[1]).zfill(2)  
